@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.game.handlers.GameStateManager;
+import com.game.handlers.MyInput;
+import com.game.handlers.MyInputProcessor;
 
 public class Game implements ApplicationListener {
 	public static final String TAG = "Bunny";
@@ -25,6 +27,8 @@ public class Game implements ApplicationListener {
 
 	@Override
 	public void create() {
+		Gdx.input.setInputProcessor(new MyInputProcessor());
+		
 		Texture.setEnforcePotImages(false);
 		
 		batch = new SpriteBatch();
@@ -54,6 +58,8 @@ public class Game implements ApplicationListener {
 			accum -= STEP;
 			gsm.update(STEP);
 			gsm.render();
+			
+			MyInput.update();
 		}
 	}
 
