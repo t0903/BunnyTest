@@ -3,6 +3,7 @@ package com.game.main;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.game.handlers.GameStateManager;
 
@@ -24,6 +25,8 @@ public class Game implements ApplicationListener {
 
 	@Override
 	public void create() {
+		Texture.setEnforcePotImages(false);
+		
 		batch = new SpriteBatch();
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false,V_WIDTH,V_HEIGHT);
